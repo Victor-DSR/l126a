@@ -227,3 +227,21 @@ Para cada programa abaixo, represente-o em linguagem de montagem, e diga o que f
 Esse assunto pode ser visto no capítulo 4 do [livro de algoritmos da UFPR](https://www.inf.ufpr.br/marcos/livro_alg1/livro_alg1.pdf).
 Recomendo ler também os capítulos anteriores...
 
+* * *
+
+### Esclarecimentos sobre os exercícios
+
+- Colocar os programas em linguages de máquina e de montagem, não é necessário em outra linguagem.
+- A descrição do que faz um programa é mais como "calcula a média de 3 números digitados" e não como "lê um número, coloca em tal lugar, lê outro ..."
+- Pode colocar a resposta em um arquivo txt (ou pdf) e anexar ao email, ou diretamente no corpo do email
+- É opcional (a não entrega não tem consequência negativa direta)
+- Não falei como poderia representar o destino de um desvio na linguagem de montagem... Dá para deixar o número. O melhor (o que eu deveria ter explicado) seria colocando um nome (chamado *label*), tipicamente seguido por dois pontos no início da linha de destino:
+```
+  ...
+  ALI: ESCR N, VIDEO
+       SOMA N, #1, N
+       DESVM N, M, ALI
+  ...
+```
+
+
