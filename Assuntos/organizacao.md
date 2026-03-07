@@ -243,5 +243,8 @@ Recomendo ler também os capítulos anteriores...
        DESVM N, M, ALI
   ...
 ```
-
+- Para entender o que faz o programa 2, pode ajudar descobrindo:
+  - qual número vai ser impresso se ele ler os valores 5 e 7?
+  - e se ele ler primeiro 7 e depois 5?
+  - e se forem outros 2 números, em uma ordem e na outra?
 
