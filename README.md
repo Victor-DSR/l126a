@@ -4,7 +4,9 @@ ELC1065 DLSC/CT/UFSM\
 professor: Benhur Stein ([benhur+l126a@inf.ufsm.br](mailto:benhur%2bl126a@inf.ufsm.br))\
 terças e quintas, 8h30 (turma CC3_Calouros, SI3, SI3_geral, CC3) ou 14h30 (turmas CC2_Calouros, SI2, SI2_geral, CC2)\
 sala 334, prédio 7 (principal do CT)\
-aluno monitor: (?)
+aluno monitor: (?)\
+\
+arquivo rascunho: https://docs.google.com/document/d/1N21tqLkZEnALHvoJXw3apZegu-AAAba2f8wwZH7tIng/edit?usp=sharing
 
 ## Desenvolvimento da disciplina
 
