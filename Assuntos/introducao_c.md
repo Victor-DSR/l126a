@@ -639,3 +639,39 @@ int main()
 ```
 
 Em todos os desenhos de triângulos, a maior linha deve só conter asteriscos.
+
+* * *
+
+A função `puts`, também disponibilizada pela inclusão de `stdio.h` serve para imprimir uma sequência de caracteres (chamada *string*).
+Ela recebe como argumento os caracteres a imprimir, entre *aspas duplas* (**`"`**). Depois de imprimir os caracteres, ela imprime um final de linha (`'\n'`). Por exemplo, o comando abaixo vai imprimir uma linha com "Olá mundo!":
+```c
+   puts("Olá mundo!");
+```
+Não podem ser aspas simples. Pode usar caracteres acentuados. Caracteres especiais são codificados com `\` como nas aspas simples.
+
+#### Exercícios
+
+Faça um programa com várias funções, cada uma para desenhar um dos desenhos abaixo, usando `puts` (talvez mais de uma chamada); faça uma `main` que chama elas:
+
+Um gatinho:
+```
+=^..^=
+```
+Um ratinho:
+```
+<:3)~~~
+```
+Um gatão:
+```
+ /\_/\
+( o.o )
+ > ^ <
+```
+Um ratão:
+```
+ _   _
+(_)_(_)
+ (o o)
+==\o/==
+   "
+```
