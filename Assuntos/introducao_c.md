@@ -422,3 +422,220 @@ Exercício
 Teste a função impnum acima, fazende um programa que imprime diversos valores. Imprima valores calculados por expressões.
 
 Faça uma função impbin como a impnum acima, para imprimir números em binário. Em binário, os dígitos representam potências de 2, em decimal representam potências de 10 (por isso tem tantos números 10 em impnum). Teste sua função.
+
+* * *
+
+<a id="loop"></a>
+
+Outra forma de imprimir números é implementando a repetição de comandos.
+Para isso, necessitamos primeiramente ter comandos que sejam repetidor, uma sequência de comandos iguais que fazem o que queremos.
+
+Para imprimir números, devemos imprimir os caracteres que correspondem a cada dígito. Para cada caractere a imprimir, devemos extrair o dígito correspondente e calcular o código do caractere correspondente.
+Para extrair o valor de um dígito decimal de um número, podemos usar a seguinte expressão:
+```c
+   num / potência_de_10 % 10
+```
+onde `potência_de_10` é uma potência de 10 que varia conforme o dígito a extrair, 1 para a unidade, 10 para a dezena, 100 para a centena etc.
+
+Tendo o valor do dígito, podemos calcular o código do caractere que representa esse dígito somando `'0'`, que é o código do dígito 0.
+Por exemplo, para imprimir o dígito da centena do valor em `num`, podemos usar:
+```c
+   putchar('0' + num / 100 % 10);
+```
+Podemos imprimir um número de 4 dígitos com:
+```c
+   putchar('0' + num / 1000 % 10);
+   putchar('0' + num / 100 % 10);
+   putchar('0' + num / 10 % 10);
+   putchar('0' + num / 1 % 10);
+```
+
+Uma *variável* em C é uma região de memória que possui um valor (é a abstração em C para a memória do computador). Uma variável possui um nome que a identifica. Usa-se esse nome toda vez que se quer acessar o valor dessa variável (corresponde à operação de leitura da memória) ou alterar esse valor (corresponde à operação de escrita na memória).
+Para se poder usar uma variável, antes ela deve ser *declarada*, com um comando que possui o tipo dos valores que a variável irá conter e o seu nome. Por exemplo, o comando abaixo declara a variável `xis`, que conterá valores inteiros:
+```c
+   int xis;
+```
+A declaração de uma variável pode opcionalmente conter a sua *inicialização*, um valor inicial que é colocado na posição de memória que corresponde à variável, assim:
+```c
+   int xis = 125;
+```
+Se a variável não for inicializada, o valor que ela conterá será o valor que porventura estiver na posição de memória escolhida pelo compilador na hora que esse comando for executado.
+
+Depois de declarada, podemos usar o valor de uma variável usando seu nome em uma expressão (da mesma forma que fizemos com os parâmetros de funções — na verdade, os parâmetros são um tipo especial de variável). Por exemplo, o comando abaixo irá imprimir o quadrado do valor da variável `xis`:
+```c
+   impnum(xis * xis);
+```
+A alteração do valor de uma variável se faz com o comando de *atribuição*, que é representado pelo sinal `=`, com o nome da variável que terá seu valor alterado à esquerda e uma expressão que calcula o valor a ser colocado nessa variável à direita. Por exemplo, o comando abaixo coloca o valor 17 na variável `xis`:
+```c
+   xis = 17;
+```
+O comando abaixo dobra o valor da variável `xis` (irá colocar 34 em `xis`, se for executado logo após o anterior);
+```c
+   xis = 2 * xis;
+```
+O comando abaixo não altera o valor de `xis`, só calcula o dobro do seu valor mas não faz nada com o resultado:
+```@
+   xis * 2;
+```
+
+Podemos usar uma variável para conter a potência de 10 usada para imprimir nosso número, e comandos de atribuição para alterar o valor da variável para conter a potência de 10 necessária para cada dígito:
+```c
+   int pot = 1000;
+   putchar('0' + num / pot % 10);
+   pot = pot / 10;
+   putchar('0' + num / pot % 10);
+   pot = pot / 10;
+   putchar('0' + num / pot % 10);
+   pot = pot / 10;
+   putchar('0' + num / pot % 10);
+```
+Agora, temos um grupo de comandos idênticos que se repetem.
+Podemos, em vez de ter várias cópias desses comandos no nosso programa, usar um comando que cause a repetição de sua execução.
+Um dos comandos de repetição oferecidos pela linguagem C é o comando `while` (que significa "enquanto"). Ele tem a seguinte forma:
+```c
+   while (expressão) {
+      comandos
+   }
+```
+onde *`expressão`* é uma expressão lógica, que produz um valor que pode ser verdadeiro ou falso, e *`comandos`* é uma sequência de comandos da linguagem.
+A forma de execução do comando *while* é:
+1. o valor da expressão é calculado
+2. se o valor calculado for "falso", todo o comando while termina, e a execução continua no comando seguinte (após o "}")
+3. se o valor for "verdadeiro", a sequência de comandos no corpo do *while* é executada, e quando a execução desses comandos terminar, continua no passo 1.
+
+Comandos de repetição implementam o que se chama de laços (ou "*loops*" em inglês).
+
+Os *operadores de comparação* são exemplos de operadores que produzem valores lógicos (verdadeiro ou falso). São eles:
+- `>` — maior que — produz o valor verdadeiro se o valor numérico à esquerda for maior que o da direita e falso caso contrário
+- `<` — menor que — produz verdadeiro se o da esquerda for menor que o da direita
+- `>=` — maior ou igual — verdadeiro se o da esquerda for maior ou igual ao da direita
+- `<=` — menor ou igual
+- `==` — igual
+- `!=` — diferente
+
+Podemos usar esses operadores na expressão do *while*. Como é a mesma expressão que é testada a cada vez, para que o resultado de uma execução da expressão possa ser diferente de outra, deve testar algum valor que é alterado pelos comandos no corpo do *while*.
+
+No nosso caso, queremos executar os dois comandos para os valores de `pot` que sejam maiores ou iguais a 1:
+```c
+   int pot = 1000;
+   while (pot >= 1) {
+     putchar('0' + num / pot % 10);
+     pot = pot / 10;
+   }
+```
+A execução desse trecho de programa será:
+1. encontra um local livre na memória, reserva ele, coloca o valor 1000 nele;
+2. testa se o valor nesse local é maior ou igual a 1 (na primeira execução, `pot` vale 1000, que é maior ou igual a 1)
+3. se não for, terminou a execução do trecho
+4. se for,
+    1. calcula e imprime o dígito de `num` que corresponde ao valor de `pot` (na primeira execução, o dígito dos milhares, já que pot vale 1000)
+    2. calcula o valor de `pot/10`, e coloca o valor calculado no local de `pot` (na primeira execução, coloca o valor 100 em `pot`)
+    3. continua no passo 2.
+
+Juntando isso tudo, nossa função `impnum` fica:
+```c
+   void impnum(int num)
+   {
+      int pot = 1000;
+      while (pot >= 1) {
+         putchar('0' + num / pot % 10);
+         pot = pot / 10;
+      }
+   }
+```
+E podemos usar ela para imprimir números de 4 dígitos. Ela tem alguns problemas:
+- não dá para imprimir números com mais de 4 dígitos
+- se o número a imprimir tem menos de 4 dígitos, vai ser impresso com zeros à esquerda.
+
+Os dois problemas podem ser corrigidos alterando o valor 1000 que inicializa `pot`, aumentando o número de zeros para aumentar o número de dígitos ou diminuindo para ter menos dígitos.
+
+Podemos automatizar o número de dígitos se calcularmos a potência de 10 que deve ser colocada, de acordo com o número a imprimir:
+- se o número for menor que 10, `pot` deve ser 1
+- se o número for entre 10 e 99, `pot` deve ser 10
+- se o número for entre 100 e 999, `pot` deve ser 100 etc
+
+se começarmos com `pot` em 1 e aumentarmos o número de zeros no final até que `pot` seja maior que o número a imprimir, teremos `pot` com um zero a mais.
+```c
+   int pot = 1;
+   while (pot <= num) {
+      pot = pot * 10;
+   }
+```
+O menor valor que queremos para pot é 10 (um zero a mais que o valor que realmente queremos). Para economizar uma multiplicação por 10 e também evitar que pot possa sair desse laço com o valor 1, inicializamos pot em 10 em vez de 1.
+
+Se invertermos a ordem dos comandos controlados pelo while, primeiro tirando um zero de pot e depois imprimindo o dígito correspondente, teremos a impressão que queríamos (após alterar o teste do while para parar em 10 e não mais em 1):
+```c
+   void impnum(int num)
+   {
+      int pot = 10;
+      while (pot <= num) {
+         pot = pot * 10;
+      }
+      while (pot >= 10) {
+         pot = pot / 10;
+         putchar('0' + num / pot % 10);
+      }
+   }
+
+```
+Agora sim, temos uma função que imprime qualquer número inteiro positivo.
+Podemos fazer uma função main que imprime os números de 0 a 100:
+```c
+int main()
+{
+   int n = 0;
+   while (n <= 100) {
+      inpnum(n);
+      putchar('\n');
+      n = n + 1;
+   }
+}
+```
+
+### Exercícios
+
+1. Faça uma função que recebe um número como parâmetro e imprime uma linha contendo esse número de asteriscos. Por exemplo, se a função for chamada com o valor 5 deve imprimir uma linha com:
+```
+   *****
+```
+2. O programa abaixo usa a função do exercício acima para imprimir um triângulo de asteriscos:
+```c
+   int main()
+   {
+      int n = 0;
+      while (n < 5) {
+         linha(n);
+      }
+   }
+```
+   Altere esse programa para imprimir esse triângulo de cabeça para baixo.
+3. Altere novamente o programa do exercício anterior transformando a função `main` em uma função que recebe um argumento que é o número de asteriscos da maior linha do triângulo, e imprime o triângulo correspondente. Por exemplo, se ela receber 3 como argumento deve desenhar
+```
+   *
+   **
+   ***
+```
+4. Faça uma função como a anterior, para desenhar o triângulo invertido. Se receber 4 como argumento, deve desenhar:
+```
+   ****
+   ***
+   **
+   *
+```
+5. Bla:
+```
+   ****
+    ***
+     **
+      *
+```
+   Para isso, faça outra função que recebe um número como argumento e desenha tantos espaços.
+6. Bla bla:
+```
+      *
+     **
+    ***
+   ****
+```
+
+Em todos os desenhos de triângulos, a maior linha deve só conter asteriscos.
