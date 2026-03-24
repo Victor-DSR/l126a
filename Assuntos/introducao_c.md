@@ -734,6 +734,12 @@ O funcionamento do `for` é:
 
 O comando `for` do exemplo acima irá imprimir 10 números, entre 0 e 9.
 
+A atribuição `i = i + 1` é tão comum que foi criado um "operador de incremento" para simplificá-la: `i++`.
+Essa é a forma mais usada para implementar "repita n vezes" com o comando `for`:
+```c
+   for (int i = 0; i < n; i++) {...}
+```
+
 #### Exercícios
 
 Use o comando `for` para:
@@ -742,4 +748,7 @@ Use o comando `for` para:
 1. imprimir os números de 1 a 10, todos na mesma linha, separados por vírgula, com um final de linha no final (só pode ter vírgula entre dois números, não pode ter antes do primeiro nem após o último)
 1. imprimir os números pares entre 1 e 100
 1. fazer uma função que recebe um número como argumento e imprime os números ímpares menores que o número e maiores que a metade do número (por exemplo, se receber 10, deve imprimir `7 9`)
-
+1. fazer uma função que recebe um número e imprime seus divisores positivos.
+1. fazer uma função que recebe um número e imprime a soma de todos os números positivos menores que o número recebido.
+1. fazer uma função que recebe um número e imprime o número caso ele seja um número perfeito; se não for, a função não imprime nada. Número perfeito é aquele que é igual à soma de seus divisores positivos menores que ele (como 6 que é igual a 1+2+3).
+1. usando a função anterior, faça um programa que imprime todos os números perfeitos entre 1 e 1000 (só tem 3).
