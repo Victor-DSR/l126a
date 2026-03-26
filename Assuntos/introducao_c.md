@@ -752,3 +752,69 @@ Use o comando `for` para:
 1. fazer uma função que recebe um número e imprime a soma de todos os números positivos menores que o número recebido.
 1. fazer uma função que recebe um número e imprime o número caso ele seja um número perfeito; se não for, a função não imprime nada. Número perfeito é aquele que é igual à soma de seus divisores positivos menores que ele (como 6 que é igual a 1+2+3).
 1. usando a função anterior, faça um programa que imprime todos os números perfeitos entre 1 e 1000 (só tem 3).
+
+<a id="atrib"></a>
+#### Outros operadores de atribuição
+
+Em comandos for, é comum se necessitar incrementar a variável de controle, com um comando como `i = i + 1`.
+Isso é tão comum que a linguagem tem um operador dedicado a essa operação, o operador de incremento `++`.
+A atribuição `i = i + 1` pode ser feita com `i++` ou `++i`.
+
+Além do operador de incremento, tem seu companheiro, o operador de decremento `--`, que diminui de 1 o valor da variável sobre a qual ele opera.
+
+A operação de incremento (e também a de decremento) possui um valor associado, e pode ser usada em qualquer lugar onde um valor seja necessário. O valor associado muda se o operador de incremento estiver antes da variável (se diz pré-incremento) ou depois (se diz pós-incremento).
+No caso de pré-incremento, o valor associado à expressão é o valor da variável após o incremento, e no caso de pós-incremento, é o valor antes do incremento.
+Por exemplo (as letras são todas variáveis `int`):
+```c
+   a = 5;
+   a++;         // a passa a valer 6
+   ++a;         // a passa a valer 7
+   x = a++;     // x passa a valer 7 e a passa a valer 8
+   x = --a;     // x passa a valer 7 e a passa a valer 7
+   b = ++a + x; // b passa a valer 15 e a passa a valer 8
+   x = b++ + ++a; // x passa a valer 24, a 9 e b 16
+   a = a++;     // comportamento indefinido, não se pode
+                //   fazer mais de uma atribuição à mesma
+                //   posição de memória em um só comando
+```
+Outro operador de atribuição é o operador de acumulação `+=`.
+Por exemplo, `a += b` é equivalente à `a = a + b`.
+Os outros operadores aritméticos têm acumulação semelhante:
+`a *= b` equivale à `a = a * b`, `a -= b` é como `a = a - b` etc.
+
+#### Exercícios
+
+1. Faça uma função que recebe um número e imprime os valores entre 1 e o número recebido de uma forma especial:
+   - como um número decimal ou
+   - como "pa" se for múltiplo de 3 ou
+   - como "pum" se terminar com o dígito 5 ou
+   - como "papum" se terminar com o dígito 5 e também for múltiplo de 3.
+
+   Não pode usar os operadores `||` nem `&&`.
+
+   Por exemplo, se a função receber 16 como parâmetro deve imprimir `1 2 pa 4 pum pa 7 8 pa 10 11 pa 13 14 papum 16`.
+1. Altere a função anterior para no final imprimir o número de "papum" que foram impressos.
+1. Faça um programa que imprime todos os números considerados "interessantes". Um número é considerado interessante se tiver 4 dígitos e a soma do quadrado do número formado por seus dois primeiros dígitos com o quadrado do número formado por seus dois últimos dígitos for igual ao próprio número. Considere por exemplo o número 1234, formado por 12 e 34. O quadrado de 12 é 144, o quadrado de 34 é 1156. A soma de 144 e 1156 é 1300, que é diferente de 1234. Logo, 1234 não é um número interessante.
+1. Altere o programa anterior, considerando que para ser interessante, o quadrado da soma e não a soma dos quadrados deve ser igual ao número. No exemplo anterior, o quadrado de (12 + 34) deveria ser 1234 para que 1234 fosse considerado interessante, mas é 2116.
+1. Faça uma função que recebe um número entre 0 e 9 e imprime a tabuada desse número, no seguinte formato (para o 4):
+   ```
+   0x4=0
+   1x4=4
+   2x4=8
+   3x4=12
+   4x4=16
+   ...
+   9x4=36
+   ```
+   Não imprima `...`, mas sim a tabela inteira.
+1. Faça uma função que recebe um número como argumento e imprime todos os quadrados inteiros menores que esse número. Se receber `10`, deve imprimir `1 4 9`.
+1. Altere a função anterior para imprimir o somatório dos quadrados. Se receber `10` deve imprimir `14`.
+1. Altere de novo, para imprimir o número de quadrados. Se receber `10` deve imprimir `3`.
+1. Faça uma função que recebe 2 números como parâmetros e imprime o MDC entre esses números. Para calcular o MDC, use o algoritmo de Euclides, que diz que o MDC entre `x` e `0` é `x`, e o MDC entre `x` e `y` é igual ao MDC entre `y` e o resto da divisão de `x` por `y`.
+   Por exemplo, para calcular o MDC entre 50 e 185:
+   - 50 dividido por 185 dá 0 com resto 50, então o MDC entre 50 e 185 é igual ao MDC entre 185 e 50
+   - 185 dividido por 50 dá 3 com resto 35, então o MDC entre 185 e 50 é igual ao MDC entre 50 e 35
+   - dividindo 50 por 35 dá 1 com resto 15, então o MDC entre 50 e 35 é igual ao MDC entre 35 e 15
+   - dividindo 35 pro 15 dá 2 com resto 5, então o MDC entre 35 e 15 é igual ao MDC entre 15 e 5
+   - dividindo 15 por 5 dá 3 com resto 0, então o MDC entre 15 e 5 é igual ao MDC entre 5 e 0
+   - o MDC entre 5 e 0 é 5, que é também o MDC entre 50 e 185.

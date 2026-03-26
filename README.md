@@ -56,6 +56,7 @@ Os assuntos vistos em aula serão listados aqui.
 |    5 | 17mar | [introdução ao C, cont](Assuntos/introducao_c.md#impnum)
 |    6 | 19mar | [introdução ao C, cont](Assuntos/introducao_c.md#loop)
 |    7 | 24mar | [introdução ao C, cont](Assuntos/introducao_c.md#for)
+|    8 | 26mar | [exercícios, e mais alguns](Assuntos/introducao_c.md#atrib)
 
 
 ## Exercícios, trabalhos
