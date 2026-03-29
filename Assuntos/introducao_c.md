@@ -818,3 +818,179 @@ Os outros operadores aritméticos têm acumulação semelhante:
    - dividindo 35 pro 15 dá 2 com resto 5, então o MDC entre 35 e 15 é igual ao MDC entre 15 e 5
    - dividindo 15 por 5 dá 3 com resto 0, então o MDC entre 15 e 5 é igual ao MDC entre 5 e 0
    - o MDC entre 5 e 0 é 5, que é também o MDC entre 50 e 185.
+
+#### Mais exercícios
+
+O que será impresso pelos programas abaixo? Resolva sem o computador, confira com o computador.
+1. ```c
+   #include <stdio.h>
+   int main() {
+      int a = 7;
+      int b = 5;
+      if (a > b) {
+         b = a;
+      }
+      a = b;
+      printf("%d %d\n", a, b);
+   }
+   ```
+1. ```c
+   #include <stdio.h>
+   int main() {
+      int a = 5;
+      int b = 7;
+      if (a > b) {
+         b = a;
+      }
+      a = b;
+      printf("%d %d\n", a, b);
+   }
+   ```
+1. ```c
+   #include <stdio.h>
+   void f(int a, int b) {
+      if (a > b) {
+         b = a;
+      }
+      a = b;
+      printf("%d %d\n", a, b);
+   }
+   int main() {
+      f(5, 7);
+   }
+   ```
+1. ```c
+   #include <stdio.h>
+   void f(int a, int b) {
+      if (a > b) {
+         b = a;
+      }
+      a = b;
+      printf("%d %d\n", a, b);
+   }
+   int main() {
+      int x = 5;
+      f(x, x + 2);
+      printf("%d\n", x);
+   }
+   ```
+1. ```c
+   #include <stdio.h>
+   void f(int a, int b) {
+      if (a > b) {
+         b = a;
+      }
+      a = b;
+      printf("%d %d\n", a, b);
+   }
+   int main() {
+      int a = 5;
+      f(a, a + 2);
+      printf("%d\n", a);
+   }
+   ```
+1. ```c
+   #include <stdio.h>
+   void f(int a, int b) {
+      if (a > b) {
+         b = a;
+      }
+      a = b;
+      printf("%d %d\n", a, b);
+   }
+   int main() {
+      int a = 5;
+      int b = 7;
+      f(a, b);
+      printf("%d %d\n", a, b);
+   }
+   ```
+1. ```c
+   #include <stdio.h>
+   void f(int a, int b) {
+      while (a > b) {
+         putchar('b');
+         b++;
+      }
+      while (a < b) {
+         putchar('a');
+         a++;
+      }
+      printf(" %d %d\n", a, b);
+   }
+   int main() {
+      int a = 5;
+      int b = 7;
+      f(a, b);
+      printf("%d %d\n", a, b);
+   }
+   ```
+1. ```c
+   #include <stdio.h>
+   void f(int a, int b) {
+      while (a > b) {
+         putchar('b');
+         b++;
+      }
+      while (a < b) {
+         putchar('a');
+         a++;
+      }
+      printf(" %d %d\n", a, b);
+   }
+   int main() {
+      int a = 5;
+      int b = 7;
+      f(b, a);
+      printf("%d %d\n", a, b);
+   }
+   ```
+1. ```c
+   #include <stdio.h>
+   void f(int a, int b) {
+      int n = 0;
+      for (int i = a; i < b; i++) {
+         n++;
+      }
+      printf(" %d %d %d\n", a, b, n);
+   }
+   int main() {
+      int a = 5;
+      int b = 7;
+      f(b, a);
+      printf("%d %d\n", a, b);
+   }
+   ```
+1. ```c
+   #include <stdio.h>
+   void f(int a, int b) {
+      int n = 0;
+      for (int i = a; i < b; i++) {
+         n++;
+      }
+      printf(" %d %d %d\n", a, b, n);
+   }
+   int main() {
+      int a = 5;
+      int b = 7;
+      f(a, b);
+      printf("%d %d\n", a, b);
+   }
+   ```
+1. ```c
+   #include <stdio.h>
+   void f() {
+      int a = 1;
+      int b = 1;
+      for (int i = 0; i < 10; i++) {
+         printf("%d %d\n", i + 1, a);
+         int x = a + b;
+         a = b;
+         b = x;
+      }
+   }
+   int main() {
+      f();
+   }
+   ```
+12. O programa anterior imprime os 10 primeiros números da sequência de Fibonacci. Altere a função `f` para receber um argumento `n` e imprimir só o enésimo número da sequência. Altere `main` para ficar coerente com a nova `f`.
