@@ -59,6 +59,7 @@ Os assuntos vistos em aula serão listados aqui.
 |    8 | 26mar | [exercícios, e mais alguns](Assuntos/introducao_c.md#atrib)
 |    9 | 31mar | [if, retorno de função, exercícios](Assuntos/a9.md)
 |   10 |  2abr | [exercícios](Assuntos/a9.md#a10)
+|   11 |  7abr | [representação numérica](Assuntos/representacao_de_dados.md)
 
 
 ## Exercícios, trabalhos
