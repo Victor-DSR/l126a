@@ -83,8 +83,25 @@ A aritmética inteira é feita com os tipos `int` ou maior; os valores menores s
 
 ### Exercício
 
-Faça um programa que imprime os primeiros 10 valores `int` que não são representáveis como `float`.
+1. Faça um programa que imprime os primeiros 10 valores `int` que não são representáveis como `float`.
 Para saber se um número que está em uma variável inteira é representável como float, transfira-o para uma variável do tipo float e depois dessa para uma variável do tipo int. Se o valor na última variável for igual ao da primeira, o valor é representável como float.
+2. Faça uma programa para encontrar o maior valor `float` que somado ao valor 1 `float` não altera o 1.
+   Dica: use 2 variáveis para conter um valor que é grande (causa alteração) e outro que é muito pequeno (não causa alteração), e chuta um valor no meio. Dependendo se o valor chutado causa ou não alteração, altera um ou outro dos limites. Dá para repetir até o chute ser igual a um dos limites.
+
+* * *
+
+<!-->
+Incluindo `<limits.h>`, tem-se acesso a algumas constantes com valores relativos aos tipos de dados inteiros, como `CHAR_WIDTH`, que tem o número de bytes em um `char`, `USHRT_MAX`, que tem o maior valor representável em um `unsigned short`, `INT_MIN`, que tem o menor valor representável em um `int`.
+Nessas constantes, os tipos são `CHAR`, `SHRT`, `INT`, `LONG`, `LLONG`, podendo ser precedidos de `U` para `unsigned`. As constantes `_MIN` não existem para os tipos `unsigned` (o valor mínimo nesse caso é sempre 0). 
+
+### Valores literais
+
+Em C, se chama de "literais" os valores constantes. Esses valores também têm um tipo. Eles podem ser escritos de várias formas:
+- sequência de dígitos decimais não iniciada por `0`: valor do tipo `int` ou `long` ou `long long`, o menor que consegue representar o valor.
+- sequência de dígitos octais iniciada por `0`: valor inteiro em octal. O tipo será `int` se o valor couber, senão, `unsigned int` se couber, senão, `long` ou `unsigned long` ou `long long` ou `unsigned long long`.
+- sequência de dígitos hexadecimais iniciada por `0x`: valor inteiro em hexadecimal. O tipo é como para octais.
+- sequência de dígitos binários iniciada por `0b`: valor inteiro em binário. O tipo é como para octais.
+- 
 
 
 <!--
