@@ -103,3 +103,27 @@ Se o formato for "%i%c%d" e for digitado:
 1. Faça uma função para ler e retornar um número `int` entre 1 e 10. A função deve pedir o número para o usuário, usar `scanf` para ler o número e so o número não estiver entre 1 e 10 emitir uma mensagem nesse sentido e pedir para digitar novamente, até que o usuário se comporte.
 2. Altere a função para que ela tolere mesmo o caso em que o usuário digite caracteres que não são dígitos.
    Dicas: dá para limpar a entrada lendo um caractere por vez até ler o fim de linha. Dá para saber se o scanf leu um número colocando um valor inválido (como -1) na variável antes de chamar o scanf.
+
+### RAP
+
+- Sobre o cálculo da raiz
+   A ideia é assim: tem 2 números, que são inicializados de forma que um deles é maior que a raiz que está procurando e o outro é menor que a raiz.
+   Se n é o valor cuja raiz se está buscando e n é maior que 1, uma forma de inicializar esses limites seria usando o valor 1, que é certamente menor que a raiz de n, e o valor n, que é certamente maior que a raiz de n.
+
+   A cada passo, chuta que a raiz é um número entre os limites (um chute fácil e razoável é o valor no meio entre os limites).
+
+   Então, verifica se o chute é menor ou maior que a raiz que está procurando e muda o limite correspondente para o valor do chute.
+   Como não sabe qual o valor da raiz, para verificar se o chute é maior ou menor que a raiz, vê se o quadrado do chute é maior ou menor que n.
+
+   Por exemplo, digamos que esteja buscando a raiz de 2.
+
+   Os limites são 1 e 2.
+   Chuta 1.5.
+   O quadrado de 1.5 é maior que 2, então a raiz de 2 é menor que 1.5.
+
+   Agora os limites são 1 e 1.5.
+   Chuta 1.25.
+   O quadrado de 1.25 é menor que 2, então a raiz de 2 é maior que 1.25.
+
+   Agora os limites são 1.25 e 1.5.
+   etc
