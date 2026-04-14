@@ -61,6 +61,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   10 |  2abr | [exercícios](Assuntos/a9.md#a10)
 |   11 |  7abr | [tipos de dados numéricos](Assuntos/tipos_de_dados_numericos.md)
 |   12 |  9abr | [entrada e saída (printf, scanf)](Assuntos/es.md)
+|   13 | 14abr | [complementação do básico de C](Assuntos/resumo1.md)
 
 
 ## Exercícios, trabalhos
