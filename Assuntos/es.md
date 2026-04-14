@@ -107,6 +107,7 @@ Se o formato for "%i%c%d" e for digitado:
 ### RAP
 
 - Sobre o cálculo da raiz
+
    A ideia é assim: tem 2 números, que são inicializados de forma que um deles é maior que a raiz que está procurando e o outro é menor que a raiz.
    Se n é o valor cuja raiz se está buscando e n é maior que 1, uma forma de inicializar esses limites seria usando o valor 1, que é certamente menor que a raiz de n, e o valor n, que é certamente maior que a raiz de n.
 
