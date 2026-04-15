@@ -22,3 +22,21 @@
    Cada linha deve conter o ângulo (múltiplo de 5) e o seno do ângulo seguido pelo seno dos 4 ângulos subsequentes.
    Imprima os senos com 6 casas decimais.
    Os valores devem estar alinhados na vertical.
+5. Faça uma função para o cálculo da raiz quadrada de seu parâmetro. Use o tipo `double` para o parâmetro e o retorno. 
+   Use o método de Heron para o cálculo da raiz de *x*:
+   - inicie com um chute qualquer (um valor positivo) (*c*)
+   - o chute seguinte será a média entre *c* e *x/c*
+   - continue até que o erro (pode ser a diferença entre 2 chutes sucessivos) seja inferior a 10¯¹⁰.
+6. Faça uma função para calcular o cosseno de um ângulo em radianos. Use as funções acima e a fórmula *sen²x + cos²x = 1*.
+1. Refaça a tabela, incluindo o cosseno, e imprimindo com 4 casas depois da vírgula. Fica mais ou menos assim:
+   ```
+   ang seno   coseno   seno   coseno   seno   coseno   seno   coseno   seno    coseno
+    0  0.0000 1.0000   0.0010 0.9090   0.xxxx 0.xxxx   0.xxxx 0.xxxx   0.xxxx 0.xxxx
+    5  ...
+   10  ...
+   ```
+   Pontos extras se imprimir em um quadro, com os caracteres unicode de desenho de linhas (por exemplo em https://en.wikipedia.org/wiki/Box-drawing_characters). Para imprimir esses caracteres, pode ser com \u e o código ou copiar da página e colar no printf:
+   ```
+   printf("└─┤");
+   printf("\u2514\u2500\u2524");
+   ```
