@@ -66,6 +66,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   12 |  9abr | [entrada e saída (printf, scanf)](Assuntos/es.md)
 |   13 | 14abr | [complementação do básico de C](Assuntos/resumo1.md)
 |   14 | 16abr | Implementação do t1
+|   15 | 23abr | Implementação do t1
 
 
 ## Exercícios, trabalhos
