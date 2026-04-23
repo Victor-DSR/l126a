@@ -91,7 +91,7 @@ Os operandos aritméticos não operam sobre valores menores que `int`.
   | :---: | :--- | :--- |
   | `[]` `()` `.` `->` `++` `--` | `++` e `--` após o operando | esquerda |
   | `sizeof` `&` `*` `+` `-` `~` `!` `++` `--` | unários; `++` e `--` antes do operando | direita |
-  | `(tipo)` | unário | direita |
+  | `(tipo)` | conversão de tipo | direita |
   | `*` `/` `%` | multiplicativo | esquerda |
   | `+` `-` | aditivo | esquerda |
   | `<<` `>>` | deslocamento de bit | esquerda |
@@ -99,11 +99,11 @@ Os operandos aritméticos não operam sobre valores menores que `int`.
   | `==` `!=` | igualdade | esquerda |
   | `&` | **e** bit a bit | esquerda |
   | `^` | **ou exclusivo** bit a bit | esquerda |
-  | `|` | **ou** bit a bit | esquerda |
+  | `\|` | **ou** bit a bit | esquerda |
   | `&&` | **e** lógico | esquerda |
-  | `||` | **ou** lógico | esquerda |
+  | `\|\|` | **ou** lógico | esquerda |
   | `?:` | ternário de seleção | direita |
-  | `=` `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` `|=` | atribuição | direita |
+  | `=` `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` `\|=` | atribuição | direita |
   | `,` | avaliação sequencial | esquerda |
 
 Por exemplo, se `a`, `b` e `c` são variáveis inteiras com valor 3, 4 e 5, a expressão `! a < b && c > b` será avaliada assim:
